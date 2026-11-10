@@ -4,226 +4,208 @@
 
 ![Swift](https://img.shields.io/badge/Swift-5.9+-orange?logo=swift)
 ![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Lessons](https://img.shields.io/badge/Lessons-100-purple)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 **۱۰۰ درس کامل آموزش همزمانی مدرن در سوئیفت — از مبانی تا پیشرفته**
 
 *100 Complete Lessons on Modern Concurrency in Swift — From Basics to Advanced*
 
+[🌐 Live Demo](https://YOUR_USERNAME.github.io/swiftlab/) | [📖 Lessons](#-سرفصلها--topics) | [🚀 Deploy](#-دیپلوی-رایگان-روی-github-pages)
+
 </div>
 
 ---
 
-## 📖 درباره / About
+## 🎯 سریع شروع کن / Quick Start
 
-SwiftLab یک پلتفرم آموزشی اینتراکتیو برای یادگیری **Modern Concurrency در سوئیفت** است. این وب‌سایت شامل ۱۰۰ درس کامل با آزمون‌های اینتراکتیو، نمونه کد، و توضیحات به دو زبان فارسی و انگلیسی است.
+### فقط ۳ دستور:
 
-SwiftLab is an interactive learning platform for **Modern Concurrency in Swift**. It includes 100 complete lessons with interactive quizzes, code examples, and explanations in both Persian (Farsi) and English.
-
----
-
-## 📚 سرفصل‌ها / Topics
-
-| # | دسته‌بندی | Category | درس‌ها |
-|---|-----------|----------|--------|
-| 1 | مبانی همزمانی | Concurrency Basics | 1-10 |
-| 2 | Async/Await | Async/Await | 11-20 |
-| 3 | همزمانی ساختاریافته | Structured Concurrency | 21-30 |
-| 4 | تسک‌ها و گروه تسک | Tasks & TaskGroups | 31-40 |
-| 5 | اکتورها | Actors | 41-50 |
-| 6 | Sendable و Isolation | Sendable & Isolation | 51-60 |
-| 7 | AsyncSequence | AsyncSequence & Streams | 61-70 |
-| 8 | مدیریت خطا | Error Handling | 71-80 |
-| 9 | الگوهای پیشرفته | Advanced Patterns | 81-90 |
-| 10 | پروژه‌های واقعی | Real-world Projects | 91-100 |
-
----
-
-## 🚀 دیپلوی رایگان روی GitHub Pages / Free Deployment
-
-### روش ۱: GitHub Pages (رایگان) / Method 1: GitHub Pages (Free)
-
-#### مرحله ۱: ریپازیتوری بسازید
 ```bash
-# ریپازیتوری جدید بسازید
+# 1. Clone
+git clone https://github.com/YOUR_USERNAME/swiftlab.git
+cd swiftlab
+
+# 2. Install
+npm install
+
+# 3. Run locally
+npm run dev
+```
+
+### یا با اسکریپت اتوماتیک:
+
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+---
+
+## 🚀 دیپلوی رایگان روی GitHub Pages
+
+### روش سریع (۵ دقیقه):
+
+#### ۱. ریپازیتوری بساز:
+```bash
 git init
 git add .
-git commit -m "Initial commit - SwiftLab"
+git commit -m "⚡ SwiftLab - Modern Concurrency in Swift"
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/swiftlab.git
 git push -u origin main
 ```
 
-#### مرحله ۲: GitHub Actions Workflow بسازید
+#### ۲. GitHub Pages رو فعال کن:
+1. برو به **Settings** → **Pages**
+2. Source رو بذار روی **GitHub Actions**
+3. تمام! ✨
 
-فایل `.github/workflows/deploy.yml` رو بسازید:
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build
-        run: npm run build
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-#### مرحله ۳: فعال‌سازی GitHub Pages
-
-1. به **Settings** ریپازیتوری برید
-2. از منوی سمت چپ **Pages** رو انتخاب کنید
-3. در بخش **Source** گزینه **GitHub Actions** رو انتخاب کنید
-4. تمام! هر بار که push کنید، خودکار دیپلوی میشه
-
-#### آدرس سایت شما:
-```
-https://YOUR_USERNAME.github.io/swiftlab/
-```
+#### ۳. صبر کن تا Actions تموم بشه:
+- برو به تب **Actions**
+- صبر کن workflow سبز بشه ✅
+- سایتت آماده‌ست: `https://YOUR_USERNAME.github.io/swiftlab/`
 
 ---
 
-### روش ۲: Vercel (رایگان — پیشنهادی) / Method 2: Vercel (Free — Recommended)
+### روش‌های دیگه:
 
-1. به [vercel.com](https://vercel.com) برید
-2. با GitHub لاگین کنید
-3. **New Project** → ریپازیتوری رو انتخاب کنید
-4. **Deploy** رو بزنید
-5. تمام! آدرس: `https://swiftlab.vercel.app`
+<details>
+<summary><b>🟣 Vercel (پیشنهادی — راحت‌ترین)</b></summary>
 
----
+1. برو به [vercel.com](https://vercel.com)
+2. با GitHub لاگین کن
+3. **New Project** → ریپازیتوری رو انتخاب کن
+4. **Deploy** بزن
+5. آدرس: `https://swiftlab.vercel.app`
 
-### روش ۳: Netlify (رایگان) / Method 3: Netlify (Free)
+</details>
 
-1. به [netlify.com](https://netlify.com) برید
-2. **Add new site** → **Import an existing project**
-3. ریپازیتوری GitHub رو انتخاب کنید
-4. تنظیمات Build:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-5. **Deploy** رو بزنید
+<details>
+<summary><b>🔵 Netlify</b></summary>
+
+1. برو به [netlify.com](https://netlify.com)
+2. **Add new site** → **Import from Git**
+3. Build command: `npm run build`
+4. Publish directory: `dist`
+5. **Deploy**
+
+</details>
+
+<details>
+<summary><b>🟢 Cloudflare Pages</b></summary>
+
+1. برو به [pages.cloudflare.com](https://pages.cloudflare.com)
+2. **Create a project** → Connect Git
+3. Build command: `npm run build`
+4. Output directory: `dist`
+5. **Save and Deploy**
+
+</details>
 
 ---
 
 ### 🌐 دامنه سفارشی / Custom Domain
 
-#### GitHub Pages + Custom Domain:
 ```bash
-# فایل CNAME در پوشه public بسازید
+# فایل CNAME بساز
 echo "yourdomain.com" > public/CNAME
+git add public/CNAME
+git commit -m "Add custom domain"
+git push
 ```
 
-سپس در تنظیمات DNS دامنه‌تون:
+DNS Records:
 ```
-A Record    → 185.199.108.153
-A Record    → 185.199.109.153
-A Record    → 185.199.110.153
-A Record    → 185.199.111.153
-CNAME       → YOUR_USERNAME.github.io
-```
-
-#### Vercel + Custom Domain:
-1. در Vercel Dashboard → **Settings** → **Domains**
-2. دامنه‌تون رو اضافه کنید
-3. DNS records رو طبق راهنما تنظیم کنید
-
----
-
-## 🛠 توسعه محلی / Local Development
-
-```bash
-# Clone
-git clone https://github.com/YOUR_USERNAME/swiftlab.git
-cd swiftlab
-
-# Install
-npm install
-
-# Dev server
-npm run dev
-
-# Build
-npm run build
-
-# Preview build
-npm run preview
+Type    Name    Value
+A       @       185.199.108.153
+A       @       185.199.109.153
+A       @       185.199.110.153
+A       @       185.199.111.153
+CNAME   www     YOUR_USERNAME.github.io
 ```
 
 ---
 
-## 📱 ویژگی‌ها / Features
+## 📚 سرفصل‌ها / Topics
+
+| # | دسته‌بندی | Category | Lessons |
+|---|-----------|----------|---------|
+| 1 | 🟢 مبانی همزمانی | Concurrency Basics | 1-10 |
+| 2 | 🟡 Async/Await | Async/Await | 11-20 |
+| 3 | 🔵 همزمانی ساختاریافته | Structured Concurrency | 21-30 |
+| 4 | 🟣 تسک‌ها و گروه تسک | Tasks & TaskGroups | 31-40 |
+| 5 | 🔴 اکتورها | Actors | 41-50 |
+| 6 | 🟠 Sendable و Isolation | Sendable & Isolation | 51-60 |
+| 7 | 🔷 AsyncSequence | AsyncSequence & Streams | 61-70 |
+| 8 | ⚫ مدیریت خطا | Error Handling | 71-80 |
+| 9 | ⬛ الگوهای پیشرفته | Advanced Patterns | 81-90 |
+| 10 | 🌟 پروژه‌های واقعی | Real-world Projects | 91-100 |
+
+---
+
+## ✨ ویژگی‌ها / Features
 
 - ✅ **۱۰۰ درس کامل** — از مبانی تا پروژه‌های واقعی
 - ✅ **آزمون‌های اینتراکتیو** — بعد از هر درس
-- ✅ **دو زبانه** — فارسی و انگلیسی
+- ✅ **دوزبانه** — فارسی و انگلیسی (FA/EN toggle)
 - ✅ **RTL Support** — پشتیبانی کامل از راست به چپ
-- ✅ **Progress Tracking** — ذخیره پیشرفت در مرورگر
-- ✅ **Responsive** — سازگار با موبایل و دسکتاپ
-- ✅ **Dark Mode** — طراحی تاریک حرفه‌ای
-- ✅ **Code Examples** — نمونه کدهای Swift
-- ✅ **Search** — جستجو در درس‌ها
+- ✅ **Progress Tracking** — ذخیره پیشرفت در مرورگر (localStorage)
+- ✅ **Responsive Design** — موبایل، تبلت، دسکتاپ
+- ✅ **Dark Theme** — طراحی تاریک حرفه‌ای
+- ✅ **Code Examples** — نمونه کدهای Swift با syntax highlighting
+- ✅ **Search** — جستجو در تمام درس‌ها
 - ✅ **Category Filter** — فیلتر بر اساس دسته‌بندی
+- ✅ **Zero Backend** — کاملاً استاتیک، بدون نیاز به سرور
 
 ---
 
-## 🏗 تکنولوژی‌ها / Tech Stack
+## 🛠 تکنولوژی‌ها / Tech Stack
 
-- **React 18** — UI Framework
-- **TypeScript** — Type Safety
-- **Tailwind CSS** — Styling
-- **Vite** — Build Tool
-- **Font Awesome** — Icons
-- **Vazirmatn** — Persian Font
+| Technology | Purpose |
+|-----------|---------|
+| React 18 | UI Framework |
+| TypeScript | Type Safety |
+| Tailwind CSS v4 | Styling |
+| Vite | Build Tool |
+| Font Awesome 6 | Icons |
+| Vazirmatn | Persian Font |
+| GitHub Actions | CI/CD & Deployment |
+
+---
+
+## 📱 اسکرین‌شات / Screenshots
+
+<div align="center">
+
+### 🏠 صفحه اصلی
+صفحه اصلی با ۱۰۰ درس، جستجو و فیلتر دسته‌بندی
+
+### 📖 نمای درس
+نمایش کد Swift با توضیحات فارسی و انگلیسی
+
+### 🧪 آزمون
+آزمون‌های اینتراکتیو با نمایش نتیجه و توضیحات
+
+</div>
+
+---
+
+## 🤝 مشارکت / Contributing
+
+Pull requests خوش‌آمدید! برای تغییرات بزرگ، اول issue باز کنید.
+
+1. Fork کنید
+2. Branch بسازید: `git checkout -b feature/amazing-feature`
+3. Commit کنید: `git commit -m 'Add amazing feature'`
+4. Push کنید: `git push origin feature/amazing-feature`
+5. Pull Request باز کنید
 
 ---
 
 ## 📄 لایسنس / License
 
-MIT License — آزاد برای استفاده شخصی و تجاری
+MIT License - آزاد برای استفاده شخصی و تجاری.
 
 ---
 
@@ -232,5 +214,7 @@ MIT License — آزاد برای استفاده شخصی و تجاری
 **ساخته شده با ❤️ برای جامعه سوئیفت فارسی‌زبان**
 
 *Made with ❤️ for the Persian Swift Community*
+
+⭐ اگه خوشت اومد، یه ستاره بده!
 
 </div>
