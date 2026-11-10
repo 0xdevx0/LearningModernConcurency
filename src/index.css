@@ -1,1 +1,105 @@
 @import "tailwindcss";
+
+@theme {
+  --font-vazir: 'Vazirmatn', sans-serif;
+  --color-swift-orange: #F05138;
+  --color-swift-dark: #1a1a2e;
+  --color-swift-darker: #16213e;
+  --color-swift-accent: #0f3460;
+  --color-swift-light: #e94560;
+  --color-swift-green: #00b894;
+  --color-swift-purple: #6c5ce7;
+  --color-swift-blue: #0984e3;
+  --color-swift-yellow: #fdcb6e;
+}
+
+* {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  direction: ltr;
+  text-align: left;
+}
+
+pre {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F05138;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e94560;
+}
+
+/* Code block styling */
+.code-block {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  direction: ltr;
+  text-align: left;
+}
+
+.code-block code {
+  color: #c9d1d9;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Syntax highlighting colors */
+.keyword { color: #ff7b72; }
+.string { color: #a5d6ff; }
+.comment { color: #8b949e; }
+.type { color: #79c0ff; }
+.function { color: #d2a8ff; }
+.number { color: #79c0ff; }
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(240, 81, 56, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(240, 81, 56, 0.6); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
